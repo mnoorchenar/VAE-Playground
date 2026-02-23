@@ -1,1 +1,6 @@
-﻿flask==3.0.0
+Flask==3.0.0
+numpy==1.24.3
+torch==2.1.0
+torchvision==0.16.0
+matplotlib==3.8.0
+Pillow==10.1.0
