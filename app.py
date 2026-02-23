@@ -712,7 +712,7 @@ HTML = r'''<!DOCTYPE html>
           Well-separated clusters indicate a structured latent manifold.
         </p>
         <button class="btn btn-primary" onclick="loadLatentSpace()">🔄 Generate Plot</button>
-        <div class="img-box" id="latent-box" style="min-height:420px; margin-top:16px;">
+        <div class="img-box" id="latent-box" style="min-height:260px; max-height:320px; margin-top:16px;">
           <div class="placeholder">
             <span class="ph-icon">🌐</span>
             Train the model, then click Generate Plot
@@ -779,7 +779,7 @@ HTML = r'''<!DOCTYPE html>
 
         <div class="card">
           <div class="card-title"><span class="icon">🖼️</span> Generated Image</div>
-          <div class="img-box" id="gen-box" style="min-height:300px;">
+          <div class="img-box" id="gen-box" style="min-height:220px; max-height:280px;">
             <div class="placeholder">
               <span class="ph-icon">✨</span>
               Train the model then click Generate
