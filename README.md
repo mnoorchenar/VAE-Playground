@@ -1,7 +1,7 @@
 ---
 title: vae-mnist-playground
 colorFrom: purple
-colorTo: cyan
+colorTo: indigo
 sdk: docker
 ---
 
