@@ -15,6 +15,12 @@ import os
 
 app = Flask(__name__)
 
+# ── Fix: patch MNIST download URLs to a working mirror ────────────────────────
+datasets.MNIST.mirrors = [
+    "https://ossci-datasets.s3.amazonaws.com/mnist/",
+    "https://storage.googleapis.com/cvdf-datasets/mnist/",
+]
+
 # ── Global training state ──────────────────────────────────────────────────────
 training_state = {
     'is_training': False, 'progress': 0, 'current_epoch': 0,
@@ -805,7 +811,7 @@ HTML = r'''<!DOCTYPE html>
     </div>
     <div class="footer-links">
       <a class="footer-link" href="https://www.linkedin.com/in/mnoorchenar" target="_blank">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.23 0H1.77C.79 0 .77 1.72v20.56C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.23 0z"/></svg>
         LinkedIn
       </a>
       <a class="footer-link" href="https://github.com/mnoorchenar" target="_blank">
@@ -965,7 +971,7 @@ HTML = r'''<!DOCTYPE html>
 </html>
 '''
 
-# ── Routes (unchanged from original) ──────────────────────────────────────────
+# ── Routes ─────────────────────────────────────────────────────────────────────
 @app.route('/')
 def index():
     return render_template_string(HTML)
