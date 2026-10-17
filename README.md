@@ -16,8 +16,12 @@ sdk: docker
 [![Flask](https://img.shields.io/badge/Flask-2.x-4f46e5?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-3b82f6?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
-[![HuggingFace](https://img.shields.io/badge/HuggingFace-Spaces-ffcc00?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/mnoorchenar/spaces)
 [![Status](https://img.shields.io/badge/Status-Active-22c55e?style=for-the-badge)](#)
+
+<br/>
+
+[![Live Demo](https://img.shields.io/badge/%E2%96%B6_Live_Demo-Hugging_Face_Space-ffcc00?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/spaces/mnoorchenar/VAE-Playground)
+[![Source Code](https://img.shields.io/badge/Source_Code-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mnoorchenar/VAE-Playground)
 
 <br/>
 
@@ -40,7 +44,7 @@ sdk: docker
 - [Project Structure](#-project-structure)
 - [Author](#-author)
 - [Contributing](#-contributing)
-- [Disclaimer](#disclaimer)
+- [Disclaimer](#️-disclaimer)
 - [License](#-license)
 
 ---
@@ -65,10 +69,6 @@ sdk: docker
     <td>Two latent-space sliders let you navigate the learned manifold in real time and decode novel digit-like images on the fly; a full 15×15 grid view is also available</td>
   </tr>
   <tr>
-    <td>🔒 <b>Secure by Design</b></td>
-    <td>Role-based access, audit logs, encrypted data pipelines</td>
-  </tr>
-  <tr>
     <td>🐳 <b>Containerized Deployment</b></td>
     <td>Docker-first architecture, cloud-ready and scalable</td>
   </tr>
@@ -80,7 +80,7 @@ sdk: docker
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    vae-mnist-playground                         │
+│                    VAE-Playground                         │
 │                                                                 │
 │  ┌────────────┐    ┌─────────────────┐    ┌───────────────┐   │
 │  │   MNIST    │───▶│  VAE (PyTorch)  │───▶│   Flask API   │   │
@@ -119,15 +119,14 @@ Input (784-D)
 ### Prerequisites
 
 - Python 3.10+
-- Docker & Docker Compose
 - Git
 
 ### Local Installation
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/mnoorchenar/vae-mnist-playground.git
-cd vae-mnist-playground
+git clone https://github.com/mnoorchenar/VAE-Playground.git
+cd VAE-Playground
 
 # 2. Create a virtual environment
 python -m venv venv
@@ -136,11 +135,7 @@ source venv/bin/activate  # Windows: venv\Scripts\activate
 # 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. Configure environment variables
-cp .env.example .env
-# Edit .env with your settings
-
-# 5. Run the application
+# 4. Run the application
 python app.py
 ```
 
@@ -151,12 +146,10 @@ Open your browser at `http://localhost:7860` 🎉
 ## 🐳 Docker Deployment
 
 ```bash
-# Build and run with Docker Compose
-docker compose up --build
 
-# Or pull and run the pre-built image
-docker pull mnoorchenar/vae-mnist-playground
-docker run -p 7860:7860 mnoorchenar/vae-mnist-playground
+docker build -t vae-playground .
+
+docker run -p 7860:7860 vae-playground
 ```
 
 ---
@@ -177,7 +170,7 @@ docker run -p 7860:7860 mnoorchenar/vae-mnist-playground
 ## 🧠 ML Models
 
 ```python
-# Core Models Used in vae-mnist-playground
+# Core Models Used in VAE-Playground
 models = {
     "architecture":       "Variational Autoencoder (VAE)",
     "encoder":            "FC 784 → hidden_dim → (μ, log σ²)",
@@ -202,21 +195,12 @@ models = {
 ## 📁 Project Structure
 
 ```
-vae-mnist-playground/
+VAE-Playground/
 │
-├── 📄 app.py                  # Flask app, VAE model, all routes & HTML template
-│
-├── 📂 data/                   # Auto-downloaded MNIST dataset cache
-│   └── MNIST/
-│
-├── 📄 Dockerfile              # Container definition (port 7860)
-├── 📄 docker-compose.yml      # Multi-service orchestration
-├── 📄 requirements.txt        # Python dependencies
-├── 📄 .env.example            # Environment variable template
-└── 📄 README.md               # This file
+├── 📄 Dockerfile                 # Container definition (port 7860)
+├── 📄 app.py                     # Flask app, VAE model, all routes & HTML template
+└── 📄 requirements.txt           # Python dependencies
 ```
-
-> **Note:** The project uses a single-file architecture (`app.py`) for simplicity and Hugging Face Spaces compatibility. The HTML template, VAE class, training loop, and all Flask routes are co-located intentionally.
 
 ---
 
@@ -240,7 +224,7 @@ vae-mnist-playground/
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mnoorchenar)&nbsp;
 [![Personal Site](https://img.shields.io/badge/Website-mnoorchenar.github.io-4f46e5?style=for-the-badge&logo=githubpages&logoColor=white)](https://mnoorchenar.github.io/)&nbsp;
-[![HuggingFace](https://img.shields.io/badge/HuggingFace-ffcc00?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/mnoorchenar/spaces)&nbsp;
+[![HuggingFace](https://img.shields.io/badge/HuggingFace-ffcc00?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/mnoorchenar)&nbsp;
 [![Google Scholar](https://img.shields.io/badge/Scholar-4285F4?style=for-the-badge&logo=googlescholar&logoColor=white)](https://scholar.google.ca/citations?user=nn_Toq0AAAAJ&hl=en)&nbsp;
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mnoorchenar)
 
@@ -264,15 +248,16 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-## Disclaimer
+## ⚠️ Disclaimer
 
-<span style="color:red">This project is developed strictly for educational and research purposes and does not constitute professional advice of any kind. All datasets used are either synthetically generated or publicly available (MNIST is a public domain dataset) — no real user data is stored. This software is provided "as is" without warranty of any kind; use at your own risk.</span>
+> [!WARNING]
+> This project is developed strictly for educational and research purposes and does not constitute professional advice of any kind. All datasets used are either synthetically generated or publicly available (MNIST is a public domain dataset) — no real user data is stored. This software is provided "as is" without warranty of any kind; use at your own risk.
 
 ---
 
 ## 📜 License
 
-Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more information.
+Distributed under the **MIT License**.
 
 ---
 
@@ -280,9 +265,9 @@ Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more informa
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:7c3aed,100:06b6d4&height=120&section=footer&text=Made%20with%20%E2%9D%A4%EF%B8%8F%20by%20Mohammad%20Noorchenarboo&fontColor=ffffff&fontSize=18&fontAlignY=80" width="100%"/>
 
-[![GitHub Stars](https://img.shields.io/github/stars/mnoorchenar/vae-mnist-playground?style=social)](https://github.com/mnoorchenar/vae-mnist-playground)
-[![GitHub Forks](https://img.shields.io/github/forks/mnoorchenar/vae-mnist-playground?style=social)](https://github.com/mnoorchenar/vae-mnist-playground/fork)
+[![GitHub Stars](https://img.shields.io/github/stars/mnoorchenar/VAE-Playground?style=social)](https://github.com/mnoorchenar/VAE-Playground/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/mnoorchenar/VAE-Playground?style=social)](https://github.com/mnoorchenar/VAE-Playground/fork)
 
-<sub>The name "vae-mnist-playground" is used purely for academic and research purposes. Any similarity to existing product names or trademarks is entirely coincidental. This project has no affiliation with any commercial entity.</sub>
+<sub>The name "VAE · MNIST Playground" is used purely for academic and research purposes. Any similarity to existing product names or trademarks is entirely coincidental. This project has no affiliation with any commercial entity.</sub>
 
 </div>
